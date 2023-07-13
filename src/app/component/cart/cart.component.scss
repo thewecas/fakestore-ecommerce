@@ -1,0 +1,126 @@
+.card {
+  // height: 60vh;
+  min-height: 600px;
+  position: relative;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.cart-table {
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  table {
+    border: none;
+    @media screen and (width<992px) {
+      td,
+      th {
+        &:nth-child(1) {
+          max-width: fit-content;
+        }
+        &:nth-child(3),
+        &:nth-child(4) {
+          display: none;
+        }
+      }
+    }
+    th,
+    td {
+      &:nth-child(4) {
+        padding-inline: 1rem 1.1rem;
+      }
+    }
+    thead {
+      tr {
+        th {
+          font-weight: 400;
+        }
+      }
+    }
+    tbody {
+      .cart-product {
+        border-bottom: 1px solid rgba(45, 45, 45, 0.311);
+        position: relative;
+        .product-image {
+          width: 7rem;
+          aspect-ratio: 6/8;
+          margin: 0.5rem auto;
+          mix-blend-mode: multiply;
+        }
+        td {
+          border: none;
+
+          &:nth-child(1) {
+            font-weight: 300;
+          }
+          &:nth-child(2) {
+            text-transform: capitalize;
+            font-weight: 500;
+            font-size: 1rem;
+            width: 20ch;
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            line-height: 1.8;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: unset;
+          }
+          &:nth-child(4) {
+            width: 100%;
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            line-height: 1.8;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: unset;
+            &::first-letter {
+              text-transform: uppercase;
+            }
+          }
+          &:nth-child(6) {
+            &::before {
+              content: "x";
+            }
+          }
+          &:nth-child(7) {
+            font-weight: 500;
+          }
+        }
+
+        .action {
+          display: none;
+          position: absolute;
+          bottom: 1rem;
+          right: 1rem;
+          padding: 0rem 1rem;
+        }
+        &:hover {
+          .action {
+            display: block;
+          }
+        }
+      }
+    }
+    tfoot {
+      margin-top: auto;
+      border-top: 2px solid rgba(0, 0, 0, 0.5);
+      tr {
+        border-bottom: 1px solid rgba(244, 20, 20, 0);
+        td {
+          &:nth-child(1) {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}

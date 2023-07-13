@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container d-flex justify-content-between flex-wrap">
+    <a class="navbar-brand fs-3 mx-2 col-12 col-sm-2 col-md-1" routerLink="/"
+      ><i class="fas fa-cart-shopping me-3"></i>weMart</a
+    >
+    <form class="seacrh-form form my-lg-0 mx-2 col-sm-6 col-8">
+      <input
+        class="form-control mr-sm-2"
+        type="text"
+        name="searchInput"
+        [(ngModel)]="searchTerm"
+        (keyup)="search($event)"
+        placeholder="Search Products"
+        autocomplete="off"
+      />
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </form>
+    <button class="btn m-2" routerLink="/cart">
+      <i class="fa-solid fa-cart-plus"></i>
+      <div class="badge bg-danger">{{ totalItem }}</div>
+    </button>
+  </div>
+</nav>
